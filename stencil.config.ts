@@ -1,7 +1,8 @@
 import { Config } from '@stencil/core';
 import { vueOutputTarget } from '@stencil/vue-output-target';
-import { sass } from '@stencil/sass';
 import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-output-target';
+import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
+
 
 const angularValueAccessorBindings: ValueAccessorConfig[] = [];
 
@@ -41,5 +42,8 @@ export const config: Config = {
   testing: {
     browserHeadless: "new",
   },
-  plugins: [sass()]
+  plugins: [
+    tailwind(),
+    tailwindHMR(),
+  ],
 };

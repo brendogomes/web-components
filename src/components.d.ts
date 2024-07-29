@@ -6,56 +6,56 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface WebButton {
         /**
-          * The first name
+          * Define the color of the button (e.g., 'indigo', 'blue', 'red')
          */
-        "first": string;
+        "color": string;
         /**
-          * The last name
+          * Define the size of the button (e.g., 'small', 'medium', 'large')
          */
-        "last": string;
+        "size": 'small' | 'medium' | 'large';
         /**
-          * The middle name
+          * Define the button type (e.g., 'button', 'submit', 'reset')
          */
-        "middle": string;
+        "type": 'button' | 'submit' | 'reset';
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLWebButtonElement extends Components.WebButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLWebButtonElement: {
+        prototype: HTMLWebButtonElement;
+        new (): HTMLWebButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "web-button": HTMLWebButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface WebButton {
         /**
-          * The first name
+          * Define the color of the button (e.g., 'indigo', 'blue', 'red')
          */
-        "first"?: string;
+        "color"?: string;
         /**
-          * The last name
+          * Define the size of the button (e.g., 'small', 'medium', 'large')
          */
-        "last"?: string;
+        "size"?: 'small' | 'medium' | 'large';
         /**
-          * The middle name
+          * Define the button type (e.g., 'button', 'submit', 'reset')
          */
-        "middle"?: string;
+        "type"?: 'button' | 'submit' | 'reset';
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "web-button": WebButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "web-button": LocalJSX.WebButton & JSXBase.HTMLAttributes<HTMLWebButtonElement>;
         }
     }
 }
